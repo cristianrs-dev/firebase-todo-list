@@ -1,5 +1,5 @@
 
-  
+ /* 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getFirestore, doc, getDoc,getDocs,setDoc,updateDoc,collection,deleteField, query, where,deleteDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
   const firebaseConfig = {
@@ -15,42 +15,10 @@ import { getFirestore, doc, getDoc,getDocs,setDoc,updateDoc,collection,deleteFie
   // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
+*/
+import { renderTaskUser } from "../js/services/taskService.js";
 
-
-
-
-
-//busca a tarefa com relação ao usuario
-const users = collection(db, "users");
-const user = query(users,where("nome","==","cristian"));
-const usuario = await getDocs(user)
-
-
-//lê todos os documentos de uma coleção com relação ao usuario referenciado
-const tarefas = query(collection(db, "tarefas"),
-                
-                    where("completa", "not-in", [""]),
-                   where("usuario","==",usuario.docs[0].ref)
-
-                );
-
-const asks = await getDocs(tarefas);
-
-asks.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  
-  document.getElementById("tbody").innerHTML+=`
-                          
-                           <tr>
-                          <th scope="row">1</th>
-                          <td>${JSON.stringify(doc.data().descricao)}</td>
-                          <td>${JSON.stringify(doc.data().completa)}</td>
-                          <td><button type="button" class="btn btn-primary">atualizar</button></td>
-                          <td><button type="button" class="btn btn-danger">apagar</button></td>
-                          </tr>
-  `
-
-}); 
+  renderTaskUser()
 
 
 
@@ -63,17 +31,16 @@ asks.forEach((doc) => {
 
 
 
-//adiciona um documento a uma coleçao
-const cityRef = doc(db, 'tarefas', 'tarefa');
-    setDoc(cityRef,
-     { 
-      completa:false,
-      descricao:"adicinar dados"
-    }, 
-      { merge: true });
- 
 
-// le um documento de uma coleção
+
+
+
+
+
+//adiciona uma nova tarefa
+
+/*
+// le uma tarefa
 const docRef = doc(db, "tarefas", "tarefa1");
 const docSnap = await getDoc(docRef);
 if (docSnap.exists()) {
