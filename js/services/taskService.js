@@ -17,9 +17,11 @@ export async function renderTaskUser(){
                             <td>${JSON.stringify(doc.data().descricao)}</td>
                             <td>${JSON.stringify(doc.data().completa)}</td>
                             <td><button type="button" class="btn btn-primary">atualizar</button></td>
-                            <td><button type="button" class="btn btn-danger">apagar</button></td>
+                            <td><button type="button" id="apagar" class="btn btn-danger">apagar</button></td>
                             </tr>`
   
       })
     }
+
+   
  
