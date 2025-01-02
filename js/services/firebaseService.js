@@ -3,9 +3,9 @@ import {doc,getDoc,getDocs,setDoc,updateDoc,collection,deleteField,query,where,d
 
 //AQUI FICAM OS SERVIÇOS BASICOS DE CRUD, CODIGO PURO DO FIREBASE
 //FUNÇÃO PARA ADICIONAR TASK
-function addTask(colecao,documento,user,descricao,status) {
+export async function addTask(tarefa,user,descricao,status) {
 
-    const cityRef = doc(db, colecao, documento);
+    const cityRef = doc(db, "tarefas", tarefa);
       setDoc(cityRef,
       { 
         completa:status,
@@ -37,8 +37,8 @@ return tarefas
 
 
 //DELETAR UM DOCUMENTO INTEIRO
-export async function deleteTask() {
-  await deleteDoc(doc(db, "tarefas", "tarefa"));
+export async function deleteTask(id) {
+  await deleteDoc(doc(db, "tarefas", id));
 }
  
 

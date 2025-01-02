@@ -1,23 +1,20 @@
 
 import { renderTaskUser } from "../js/services/taskService.js";
-import { deleteTask } from "./services/firebaseService.js";
 
 
 
-  renderTaskUser()
-
-//AQUI SERÁ A INTERAÇÃO COM O HTML
 
 document.addEventListener("DOMContentLoaded", () => {
-  let apagar = document.getElementById("apagar");
-  if (apagar) {
-    apagar.addEventListener("click", deleteTask);
-  } else {
-    console.error("Elemento com ID 'apagar' não encontrado.");
-  }
+  renderTaskUser();
+  
 });
 
-  
+
+
+
+
+
+
 
 
 
