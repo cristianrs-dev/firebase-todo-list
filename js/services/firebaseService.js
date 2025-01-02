@@ -43,13 +43,13 @@ export async function deleteTask(id) {
  
 
 //ATUALIZAR UM DOCUMENTO
-export async function updateTask(colecao,documento,user,descricao,status) {
+export async function updateTask(id,descricao,status) {
 
-  const task = doc(db, colecao, documento);
+  const task = doc(db, "tarefas", id);
   await updateDoc(task, {
     completa:status,
     descricao:descricao,
-    usuario:user
+    usuario:"/users/user1"
 
 });
   

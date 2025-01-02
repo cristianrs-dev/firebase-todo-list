@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
 //adiciona uma nova tarefa
 
 /*
