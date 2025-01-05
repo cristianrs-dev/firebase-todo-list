@@ -28,7 +28,7 @@ export async function getAllTask(){
 //lê todos os documentos de uma coleção com relação ao usuario referenciado
 const tarefas = query(collection(db, "tarefas"),
                 
-                    where("completa", "not-in", [""]),
+                    where("completa","not-in", [""]),
                   where("usuario","==",usuario.docs[0].ref)
 
 );
@@ -43,9 +43,9 @@ export async function deleteTask(id) {
  
 
 //ATUALIZAR UM DOCUMENTO
-export async function updateTask(id,descricao,status) {
+export async function updateTask(tarefa,descricao,status) {
 
-  const task = doc(db, "tarefas", id);
+  const task = doc(db, "tarefas", tarefa);
   await updateDoc(task, {
     completa:status,
     descricao:descricao,
